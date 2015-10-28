@@ -1,0 +1,62 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+				<div class="row">
+					<div class="col-md-12 text-right text-uppercase">
+						<h2 class="cat2h2">YOUR CART</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hrLight mb"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<table class="full-width trash-table">
+							<tr>
+								<td width="220"><p class="text-center">ITEM</p></td>
+								<td></td>
+								<td><p class="text-center">QUANTITY</p></td>
+								<td><p class="text-center">PRICE</p></td>
+								<td><p class="text-center">TOTAL</p></td>
+								<td width="20"><p class="text-center"></p></td>
+							</tr>
+							<!-- <tr>
+								<td><img src="assets/img/small-banner-1.jpg" alt=""></td>
+								<td><p class="details">Lorem Ipsum dolor sit product name lorem ipsum </p></td>
+								<td>
+									<div class="my-flex">
+										<div><p>Qty:</p></div>
+										<div><form action="#"><input type="text"></form></div>
+									</div>
+								</td>
+								<td><p class="price">$87.95</p></td>
+								<td><p class="price">$87.95</p></td>
+								<td><a href="#" class="close">×</a></td>
+							</tr> -->
+							<%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+							<% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
+							    <tr class="cart-subtotal">
+							      <td colspan="4" align='right'><h5><%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %></h5></td>
+							      <td colspan><h5><%= order_form.object.display_item_total %></h5></td>
+							      <td></td>
+							    </tr>
+							    <%= render "spree/orders/adjustments" %>
+							  <% end %>
+							  <tr class="warning cart-total">
+							    <td colspan="4" align='right'><h5><%= Spree.t(:total) %></h5></td>
+							    <td class="lead" colspan><p class="total-price"><%= order_form.object.display_total %></p></td>
+							    <td></td>
+							  </tr>
+							
+							<!-- <tr>
+								<td><a href="#" class="btn btn-primary dark-grey">CONTINUE SHOPPING</a></td>
+								<td><a href="#" class="btn btn-primary dark-grey">UPDATE CART</a></td>
+								<td></td>
+								<td colspan="3" align="right">
+									<a href="#" class="btn btn-primary white-blue">CHECK OUT</a>
+								</td>
+							</tr> -->
+	
+						</table>
+					</div>
+				</div>
