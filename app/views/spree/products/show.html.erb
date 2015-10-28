@@ -7,13 +7,13 @@
 					<div class="col-md-5">
 						<div class="gallery-item">
 							<div class="main-img">
-								<%= image_tag "spree/frontend/card-item-big.jpg", class: 'full-width' %>
+								<%= large_image(@product) %>
 							</div>
-							<div class="prev-img">
+							<!-- <div class="prev-img">
 								<div class="active"><%= image_tag "spree/frontend/small-img.jpg" %></div>
 								<div><%= image_tag "spree/frontend/small-img.jpg" %></div>
 								<div><%= image_tag "spree/frontend/small-img.jpg" %></div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -86,7 +86,9 @@
 									</div>
 									<div class="col-md-12">
 										<div data-item="owl-main-card" class="owl-main-card">
-											<div class="item active"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<% @product.images.each do |image| %>
+												<div class="item"><%= image_tag image.attachment.url(:product) %></div>
+											<% end %>
 											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
 											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
 											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
