@@ -104,19 +104,13 @@
 								<div class="my-flex card-btns">
 									<div><p>Quantity:</p></div>
 									<div>
-										<select name="" id="">
-											<option value="">1</option>
-											<option value="">1</option>
-											<option value="">1</option>
-											<option value="">1</option>
-											<option value="">1</option>
-											<option value="">1</option>
-											<option value="">1</option>
-											<option value="">1</option>
-										</select>
-									</div>
-									<div>
-										<a href="#" class="btn btn-primary text-uppercase">ADD TO CART</a>
+										<%= form_for :order, :url => populate_orders_url do |f| %>
+			                              <%= hidden_field_tag "variants[#{@product.variants_including_master.first.id
+			                            }]", 1, :size => 3 %>
+			                              <%= hidden_field_tag "variant_id", @product.variants_including_master.first.id %>
+			                              <%= number_field_tag "quantity",1, min: 0, max: 80, style: "text-align: center" %>&#8194;&#8194;
+			                              <%= button_to 'Add to cart', '#', :onclick => "$(this).parent().submit(); return false;", :class => "btn btn-primary text-uppercase" %>
+			                            <% end %>										
 									</div>
 									<div>
 										<a href="#" class="btn btn-primary gray text-uppercase">SAVE TO WISHLIST </a>
