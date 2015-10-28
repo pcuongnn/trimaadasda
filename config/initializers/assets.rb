@@ -55,3 +55,7 @@ Rails.application.config.assets.precompile += %w( spree/frontend/item-social-p.j
 Rails.application.config.assets.precompile += %w( spree/frontend/item-social-t.jpg )
 Rails.application.config.assets.precompile += %w( spree/frontend/card-tabs.png )
 Rails.application.config.assets.precompile += %w( spree/frontend/card-tabs-active.png )
+Rails.application.config.assets.precompile += %w( spree/frontend/mail.png )
+Rails.application.config.assets.precompile += %w( spree/frontend/about-photo.jpg )
+Rails.application.config.assets.precompile += %w( spree/frontend/about-catalog.jpg )
+Rails.application.config.assets.precompile += %w( spree/frontend/about-call.jpg )
