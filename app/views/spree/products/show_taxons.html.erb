@@ -24,8 +24,7 @@
 						<div class="col-md-3">
 							<div class="item">
 								<% category.products.sample(1).each do |product| %>
-									<!--	<%= link_to small_image(product, class: 'full-width'), show_taxon_path(category.id) %> -->
-									<%= link_to (image_tag "spree/frontend/category-1-item-1.jpg" , class: 'full-width'), show_taxon_path(category.id) %>
+									<%= link_to large_image(product, size: '280x198'), show_taxon_path(category.id) %>
 								<% end %>
 								<div class="section mb">
 									<div class="left">

@@ -1,7 +1,7 @@
 Spree::ProductsController.class_eval do
   def show_taxon
-  	@products_categories = Spree::Taxon.where(parent_id: 1)
   	@taxon = Spree::Taxon.find(params[:id])
+  	@products_categories = Spree::Taxon.where(parent_id: @taxon.parent_id)
   	@products = @taxon.products
   
   end
