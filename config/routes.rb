@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   Spree::Core::Engine.routes.draw do
-    get '/bathroom' => "products#categories"
-    get '/bathroom/1' => "products#categories1"
-    get '/bathroom/:id' => "products#show_taxon", as: :show_taxon
+    get '/taxon/:id' => "products#show_taxon", as: :show_taxon
+    get '/taxonomies/:id' => "products#show_taxons", as: :show_taxonomies
   end
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
