@@ -1,0 +1,253 @@
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hr mb"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="gallery-item">
+							<div class="main-img">
+								<%= image_tag "spree/frontend/card-item-big.jpg", class: 'full-width' %>
+							</div>
+							<div class="prev-img">
+								<div class="active"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+								<div><%= image_tag "spree/frontend/small-img.jpg" %></div>
+								<div><%= image_tag "spree/frontend/small-img.jpg" %></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col-md-12">
+								<p class="name-item"><%= @product.name %></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-8">
+										<div><p class="price">$<%= @product.price %></p></div>
+										<div class="my-flex action">
+											<div><p><span>SKU :</span> <%= @product.sku %></p></div>
+											<div><p class="bi">FREE SHIPPING!</p></div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="reviews"><p><span>17 </span>reviews</p></div>
+										<div class="rating one-of-5">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+										<div class="rating two-of-5">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+										<div class="rating three-of-5">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+										<div class="rating four-of-5">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+										<div class="rating five-of-5">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+										<div class="item-social">
+											<p>SHARE ON:</p>
+											<ul>
+												<li><a href="#"><%= image_tag "spree/frontend/item-social-f.jpg" %></a></li>
+												<li><a href="#"><%= image_tag "spree/frontend/item-social-p.jpg" %></a></li>
+												<li><a href="#"><%= image_tag "spree/frontend/item-social-t.jpg" %></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-md-12">
+										<p class="gallery-subtitle">Select Finish : <strong>Polished Chrome</strong> + <span>$18.50</span></p>
+									</div>
+									<div class="col-md-12">
+										<div data-item="owl-main-card" class="owl-main-card">
+											<div class="item active"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="my-flex card-btns">
+									<div><p>Quantity:</p></div>
+									<div>
+										<select name="" id="">
+											<option value="">1</option>
+											<option value="">1</option>
+											<option value="">1</option>
+											<option value="">1</option>
+											<option value="">1</option>
+											<option value="">1</option>
+											<option value="">1</option>
+											<option value="">1</option>
+										</select>
+									</div>
+									<div>
+										<a href="#" class="btn btn-primary text-uppercase">ADD TO CART</a>
+									</div>
+									<div>
+										<a href="#" class="btn btn-primary gray text-uppercase">SAVE TO WISHLIST </a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="item-review">
+									<button class="btn btn-default btn-tabs collapsed" type="button" data-toggle="collapse" data-target="#target1" aria-expanded="false" aria-controls="target1">
+										<span>Product detail</span>
+										<span class="on"><%= image_tag "spree/frontend/card-tabs.png" %></span>
+										<span class="off"><%= image_tag "spree/frontend/card-tabs-active.png" %></span>
+									</button>
+									<div class="collapse" id="target1">
+										<div class="my-flex item-detail">
+											<div class="row">
+												<%= @product.description %>
+											</div>
+									</div>
+								</div>
+								<div class="item-review">
+									<button class="btn btn-default btn-tabs collapsed" type="button" data-toggle="collapse" data-target="#target2" aria-expanded="false" aria-controls="target1">
+										<span>Specification</span>
+										<span class="on"><%= image_tag "spree/frontend/card-tabs.png" %></span>
+										<span class="off"><%= image_tag "spree/frontend/card-tabs-active.png" %></span>
+									</button>
+									<div class="collapse" id="target2">
+										<div class="my-flex item-detail">
+											<div class="row">
+												<%= render :partial => 'properties' %>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="each-other">
+							<h3>More from this Collection</h3>
+							<hr>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="each-other">
+							<h3>You may also like</h3>
+							<hr>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a href="#" class="item2">
+							<div class="imgWrap">
+								<%= image_tag "spree/frontend/category-2-item.jpg" %>
+							</div>
+							<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
+							<p class="price">$88.90</p>
+						</a>
+					</div>
+				</div>
+		
