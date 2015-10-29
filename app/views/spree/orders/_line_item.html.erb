@@ -4,9 +4,9 @@
   <tr class="line-item">
     <td class="cart-item-image" data-hook="cart_item_image">
       <% if variant.images.length == 0 %>
-        <%= link_to small_image(variant.product), variant.product %>
+        <%= link_to large_image(variant.product), variant.product %>
       <% else %>
-        <%= link_to image_tag(variant.images.first.attachment.url(:small)), variant.product %>
+        <%= link_to image_tag(variant.images.first.attachment.url(:large)), variant.product %>
       <% end %>
     </td>
     <td class="cart-item-description" data-hook="cart_item_description">
@@ -22,7 +22,7 @@
       </span>
     </td>
     <td class="cart-item-quantity" data-hook="cart_item_quantity" valign="center">
-      <%= item_form.number_field :quantity, min: 0, max: 10 %>
+      <%= item_form.number_field :quantity, min: 0, class: "line_item_quantity", size: 5 %>
     </td>
     <td class="lead text-primary cart-item-price" data-hook="cart_item_price">
       <%= line_item.single_money.to_html %>
