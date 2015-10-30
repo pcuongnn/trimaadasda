@@ -9,11 +9,7 @@
 							<div class="main-img">
 								<%= large_image(@product) %>
 							</div>
-							<!-- <div class="prev-img">
-								<div class="active"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-								<div><%= image_tag "spree/frontend/small-img.jpg" %></div>
-								<div><%= image_tag "spree/frontend/small-img.jpg" %></div>
-							</div> -->
+							
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -30,52 +26,6 @@
 										<div class="my-flex action">
 											<div><p><span>SKU :</span> <%= @product.sku %></p></div>
 											<div><p class="bi">FREE SHIPPING!</p></div>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="reviews"><p><span>17 </span>reviews</p></div>
-										<div class="rating one-of-5">
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-										</div>
-										<div class="rating two-of-5">
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-										</div>
-										<div class="rating three-of-5">
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-										</div>
-										<div class="rating four-of-5">
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-										</div>
-										<div class="rating five-of-5">
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-											<div></div>
-										</div>
-										<div class="item-social">
-											<p>SHARE ON:</p>
-											<ul>
-												<li><a href="#"><%= image_tag "spree/frontend/item-social-f.jpg" %></a></li>
-												<li><a href="#"><%= image_tag "spree/frontend/item-social-p.jpg" %></a></li>
-												<li><a href="#"><%= image_tag "spree/frontend/item-social-t.jpg" %></a></li>
-											</ul>
 										</div>
 									</div>
 								</div>
@@ -104,18 +54,15 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="my-flex card-btns">
-									<div><p>Quantity:</p></div>
 									<div>
 										<%= form_for :order, :url => populate_orders_url do |f| %>
 			                              <%= hidden_field_tag "variants[#{@product.variants_including_master.first.id
 			                            }]", 1, :size => 3 %>
 			                              <%= hidden_field_tag "variant_id", @product.variants_including_master.first.id %>
+			                              <b>Quantity:</b>
 			                              <%= number_field_tag "quantity",1, min: 0, max: 80, style: "text-align: center" %>&#8194;&#8194;
 			                              <%= button_to 'Add to cart', '#', :onclick => "$(this).parent().submit(); return false;", :class => "btn btn-primary text-uppercase" %>
 			                            <% end %>										
-									</div>
-									<div>
-										<a href="#" class="btn btn-primary gray text-uppercase">SAVE TO WISHLIST </a>
 									</div>
 								</div>
 							</div>
