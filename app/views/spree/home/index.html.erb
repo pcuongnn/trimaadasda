@@ -117,7 +117,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-6">
-						<div class="logo"><%= image_tag "spree/frontend/logo.png"%></div>
+						<div class="logo"><%= link_to image_tag("spree/frontend/logo.png"), root_path %></div>
 					</div>
 					<div class="col-xs-6 text-right">
 						<button type="button" class="navbar-toggle collapsed" data-item="offcanvas-menu">
@@ -154,7 +154,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="my-flex">
-							<div class="logo"><%= image_tag "spree/frontend/logo.png"%></div>
+							<div class="logo"><%= link_to image_tag("spree/frontend/logo.png"), root_path %></div>
 							<div class="form">
 								<form action="#">
 									<input type="text" class="search" placeholder="Type to Search">
@@ -187,30 +187,23 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div data-item="owl-main" class="main-banner">
-						<div class="item">
+				        <% @slides.each do |slide| %>
+				          <div class="item">
 							<div class="text">
 								<h3 class="text-uppercase">UP TO 20% OF ALL LOREM IPSUM</h3>
 								<h2 class="text-uppercase">LOREM IPSUM DOLOR</h2>
 								<h4 class="text-uppercase">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT</h4>
-							</div>
-							<a href="#"><%= image_tag "spree/frontend/big-home.jpg", class: 'full-width' %></a>
-						</div>
-						<div class="item">
-							<div class="text">
-								<h3 class="text-uppercase">UP TO 20% OF ALL LOREM IPSUM</h3>
-								<h2 class="text-uppercase">LOREM IPSUM DOLOR</h2>
-								<h4 class="text-uppercase">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT</h4>
-							</div>
-							<a href="#"><%= image_tag "spree/frontend/big-home.jpg", class: 'full-width' %></a>
-						</div>
-						<div class="item">
-							<div class="text">
-								<h3 class="text-uppercase">UP TO 20% OF ALL LOREM IPSUM</h3>
-								<h2 class="text-uppercase">LOREM IPSUM DOLOR</h2>
-								<h4 class="text-uppercase">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT</h4>
-							</div>
-							<a href="#"><%= image_tag "spree/frontend/big-home.jpg", class: 'full-width' %></a>
-						</div>
+							</div>				          	
+				            <% if slide.slide_link.present? %>
+				              <a href="<%= slide.slide_link %>" >
+				                <%= image_tag slide.slide_image.url %>
+				              </a>
+				            <% else %>
+				              <%= image_tag slide.slide_image.url %>
+				            <% end %>
+				          </div>
+				        <% end %>						
+
 					</div>
 				</div>
 			</div>
