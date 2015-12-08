@@ -1,267 +1,37 @@
-<div class="close-nav"></div>
-<offcanvas class="offcanvas" data-item="offcanvas">
-	<div class="offcanvas-header">
+<section class="content">
+	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-12 col-sm-12">
-				<div class="my-flex">
-					<div>
-						<button class="btn offcanvas-btn" data-item="offcanvas-menu">
-							<i class="glyphicon glyphicon-menu-right"></i>
-						</button>
-					</div>
-					<div>
-						<h3>Menu</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="offcanvas-body">
-		<div class="viewport-menu">
-			<div class="offcanvas-body-item">
-				<a href="#">PRODUCT SALES</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Production Services</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Installation Services</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Project Gallery</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">CONTACT US</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">About</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Contractor</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Account</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Locations</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Log In</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">NEW ACCOUNT</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">My CART ( <span>0</span> )</a>
-			</div>
-		</div>
-	</div>
-	<div class="offcanvas-footer">
-		<div class="offcanvas-footer-lvl-1">
-			<div class="row">
-				<div class="col-xs-6 col-md-6 col-sm-6">
-					<button class="btn btn-primary white-blue"><span>Log In</span></button>
-				</div>
-				<div class="col-xs-6 col-md-6 col-sm-6">
-					<button class="btn btn-primary white-blue"><span>NEW ACCOUNT</span></button>
+			<div class="col-md-12">
+				<div data-item="owl-main" class="main-banner">
+			        <% @slides.each do |slide| %>
+			          <div class="item">
+						<div class="text">
+							<h3 class="text-uppercase">UP TO 20% OF ALL LOREM IPSUM</h3>
+							<h2 class="text-uppercase">LOREM IPSUM DOLOR</h2>
+							<h4 class="text-uppercase">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT</h4>
+						</div>				          	
+			            <% if slide.slide_link.present? %>
+			              <a href="<%= slide.slide_link %>" >
+			                <%= image_tag slide.slide_image.url %>
+			              </a>
+			            <% else %>
+			              <%= image_tag slide.slide_image.url %>
+			            <% end %>
+			          </div>
+			        <% end %>						
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-md-12 col-sm-12">
-				<form action="">
-					<div class="row">
-						<div class="col-xs-6 col-md-6 col-sm-6">
-							<input type="search" placeholder="Type to Search">
-						</div>
-						<div class="col-xs-6 col-md-6 col-sm-6">
-							<button type="submit" class="btn btn-primary white-blue"><%= image_tag "spree/frontend/head-search.png"%><span>Search</span></button>
-						</div>
-					</div>
-				</form>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<a href="#"><%= image_tag "spree/frontend/small-banner-1.jpg", class: 'full-width banner' %></a>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-md-12 col-sm-12">
-				<hr class="line" />
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<a href="#"><%= image_tag "spree/frontend/small-banner-1.jpg", class: 'full-width banner' %></a>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-md-12 col-sm-12">
-				<button class="btn btn-primary white-blue"><span>DISTRIBUTOR LOGIN</span></button>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-xs-12 col-md-12 col-sm-12">
-				<hr class="line" />
-			</div>
-		</div>
-		<div class="offcanvas-footer-lvl-2">
-			<div class="row">
-				<div class="col-xs-12 col-md-12 col-sm-12">
-					<div class="social">
-						<div><a href="#" class="icon fb"><%= image_tag "spree/frontend/social-f.png"%></a></div>
-						<div><a href="#" class="icon tw"><%= image_tag "spree/frontend/social-i.png"%></a></div>
-						<div><a href="#" class="icon in"><%= image_tag "spree/frontend/social-t.png"%></a></div>
-					</div>
-				</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<a href="#"><%= image_tag "spree/frontend/small-banner-1.jpg", class: 'full-width banner' %></a>
 			</div>
 		</div>
 	</div>
-</offcanvas>
-
-<div class="sticky-page">
-	<section class="header">
-		<div class="header-mob visible-xs">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="logo"><%= link_to image_tag("spree/frontend/logo.png"), root_path %></div>
-					</div>
-					<div class="col-xs-6 text-right">
-						<button type="button" class="navbar-toggle collapsed" data-item="offcanvas-menu">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="header-lvl-1 hidden-xs">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 text-right">
-						<ul class="nav-login">
-							<li><a href="#">DISTRIBUTOR LOGIN</a></li>
-							<li><a href="#">Log In</a></li>
-							<li><a href="#">Register</a></li>
-							<li><a href="#">My Account</a></li>
-						</ul>
-						<ul class="nav-social">
-							<li><a href="#" class="icon fb"><%= image_tag "spree/frontend/social-f.png"%></a></li>
-							<li><a href="#" class="icon tw"><%= image_tag "spree/frontend/social-i.png"%></a></li>
-							<li><a href="#" class="icon in"><%= image_tag "spree/frontend/social-t.png"%></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="header-lvl-2 hidden-xs">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="my-flex">
-							<div class="logo"><%= link_to image_tag("spree/frontend/logo.png"), root_path %></div>
-							<div class="form">
-								<form action="#">
-									<input type="text" class="search" placeholder="Type to Search">
-								</form>
-								<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-search"%></span>  <span>SEARCH</span></a></div>
-								<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-card.png"%></span> <span>MY CART</span> <span class="count">(12)</span></a></div>
-								<div><a href="#" class="btn btn-primary white-blue"> <span>CHECK OUT</span></a></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<ul class="nav-menu">
-							<li><a href="#">home</a></li>
-							<li><a href="#">Gallery</a></li>
-							<li><a href="#">Bathroom</a></li>
-							<li><a href="#">Kitchen</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">New Products</a></li>
-							<li><a href="#">Contact Us</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="content">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div data-item="owl-main" class="main-banner">
-				        <% @slides.each do |slide| %>
-				          <div class="item">
-							<div class="text">
-								<h3 class="text-uppercase">UP TO 20% OF ALL LOREM IPSUM</h3>
-								<h2 class="text-uppercase">LOREM IPSUM DOLOR</h2>
-								<h4 class="text-uppercase">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT</h4>
-							</div>				          	
-				            <% if slide.slide_link.present? %>
-				              <a href="<%= slide.slide_link %>" >
-				                <%= image_tag slide.slide_image.url %>
-				              </a>
-				            <% else %>
-				              <%= image_tag slide.slide_image.url %>
-				            <% end %>
-				          </div>
-				        <% end %>						
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 col-sm-4 col-xs-4">
-					<a href="#"><%= image_tag "spree/frontend/small-banner-1.jpg", class: 'full-width banner' %></a>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4">
-					<a href="#"><%= image_tag "spree/frontend/small-banner-1.jpg", class: 'full-width banner' %></a>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-4">
-					<a href="#"><%= image_tag "spree/frontend/small-banner-1.jpg", class: 'full-width banner' %></a>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
-
-<section class="footer">
-	<div class="footer-lvl-1 hidden-xs">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 text-right">
-					<div class="border">
-						<ul class="nav-menu">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Contact Us</a></li>
-							<li><a href="#">LITERATURE</a></li>
-							<li><a href="#">How to Order</a></li>
-							<li><a href="#">Feedback/Suggestions</a></li>
-							<li><a href="#">Disclaimer</a></li>
-							<li><a href="#">Return Policy</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer-lvl-2">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 text-right">
-					<div class="my-flex">
-						<div>
-							<p class="text-uppercase copy">&copy; 2015 COPYRIGHT TRIMTOTHETRADE.cOM</p>
-						</div>
-						<div class="hidden-xs">
-							<ul class="nav-social">
-								<li><a href="#" class="icon fb"><%= image_tag "spree/frontend/social-f.png"%></a></li>
-								<li><a href="#" class="icon tw"><%= image_tag "spree/frontend/social-i.png"%></a></li>
-								<li><a href="#" class="icon in"><%= image_tag "spree/frontend/social-t.png"%></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 </section>
