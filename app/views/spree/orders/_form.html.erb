@@ -1,57 +1,156 @@
-<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
-				<div class="row">
-					<div class="col-md-12 text-right text-uppercase">
-						<h2 class="cat2h2">YOUR CART</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="hrLight mb"></div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<table class="full-width trash-table">
-							<tr>
-								<td width="220"><p class="text-center">ITEM</p></td>
-								<td></td>
-								<td><p class="text-center">QUANTITY</p></td>
-								<td><p class="text-center">PRICE</p></td>
-								<td><p class="text-center">TOTAL</p></td>
-								<td width="20"><p class="text-center"></p></td>
-							</tr>
+<section class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hr"></div>
+			</div>
+		</div>
+		<%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+		<div class="row">
+			<div class="col-md-12 text-right text-uppercase">
+				<h2 class="cat2h2">YOUR CART</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hrLight mb"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="full-width trash-table hidden-xs">
+					<tr>
+						<td width="80"><p class="text-center">ITEM</p></td>
+						<td></td>
+						<td><p class="text-center">QUANTITY</p></td>
+						<td><p class="text-center">PRICE</p></td>
+						<td><p class="text-center">TOTAL</p></td>
+						<td><p class="text-center"></p></td>
+					</tr>
+					
+					<%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
+					<% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
+					    <tr class="cart-subtotal">
+					      <td colspan="4" align='right'><h5><%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %></h5></td>
+					      <td colspan><h5><%= order_form.object.display_item_total %></h5></td>
+					      <td></td>
+					    </tr>
+					    <%= render "spree/orders/adjustments" %>
+					  <% end %>
+					  <tr class="warning cart-total">
+					    <td colspan="4" align='right'><h5><%= Spree.t(:total) %></h5></td>
+					    <td class="lead" colspan><p class="total-price"><%= order_form.object.display_total %></p></td>
+					    <td></td>
+					  </tr>
+					
+					<tr>
+						<td colspan="2"><a href="/products" class="btn btn-primary white-blue">Continue Shopping</a></td>
+						<td>
+							<%= button_tag class: 'btn btn-primary white-blue', id: 'update-button' do %>
+        						<%= Spree.t(:update) %>
+      						<% end %>
+  						</td>
+						
+						<td></td>
+						<td colspan="3" align="right">
+							<%= button_tag class: 'btn btn-primary white-blue', id: 'checkout-link', name: 'checkout' do %>
+        						<%= Spree.t(:checkout) %>
+      						<% end %>
+						</td>
+					</tr>
+
+				</table>
+				<div class="item-row-title visible-xs">
+					<div class="row my-flex-row">
+						<div class="col-xs-2 my-padding">
+							<p class="text-center">ITEM</p>
+						</div>
+						<div class="col-xs-3 my-padding">
 							
-							<%= render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form } %>
-							<% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
-							    <tr class="cart-subtotal">
-							      <td colspan="4" align='right'><h5><%= Spree.t(:cart_subtotal, count: @order.line_items.sum(:quantity)) %></h5></td>
-							      <td colspan><h5><%= order_form.object.display_item_total %></h5></td>
-							      <td></td>
-							    </tr>
-							    <%= render "spree/orders/adjustments" %>
-							  <% end %>
-							  <tr class="warning cart-total">
-							    <td colspan="4" align='right'><h5><%= Spree.t(:total) %></h5></td>
-							    <td class="lead" colspan><p class="total-price"><%= order_form.object.display_total %></p></td>
-							    <td></td>
-							  </tr>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<p class="text-center">QUANTITY</p>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<p class="text-center">PRICE</p>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<p class="text-center">TOTAL</p>
+						</div>
+						<div class="col-xs-1 my-padding">
 							
-							<tr>
-								<td><a href="/products" class="btn btn-primary dark-grey">Continue Shopping</a></td>
-								<td>
-									<%= button_tag class: 'btn btn-primary dark-grey', id: 'update-button' do %>
-                						<%= Spree.t(:update) %>
-              						<% end %>
-          						</td>
-								
-								<td></td>
-								<td colspan="3" align="right">
-									<%= button_tag class: 'btn btn-primary white-blue', id: 'checkout-link', name: 'checkout' do %>
-                						<%= Spree.t(:checkout) %>
-              						<% end %>
-								</td>
-							</tr>
-	
-						</table>
+						</div>
+					</div>
+				</div>	
+				<div class="item-row visible-xs">
+					<div class="row my-flex-row">
+						<div class="col-xs-2 my-padding">
+							<img class="full-width" src="assets/img/small-banner-1.jpg" alt="">
+						</div>
+						<div class="col-xs-3 my-padding">
+							<p class="details">Lorem Ipsum dolor sit product name lorem ipsum </p>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<div class="my-flex">
+								<div><p>Qty:</p></div>
+								<div><form action="#"><input type="text"></form></div>
+							</div>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<p class="price">$87.95</p>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<p class="price">$87.95</p>
+						</div>
+						<div class="col-xs-1 my-padding">
+							<a href="#" class="close">×</a>
+						</div>
 					</div>
 				</div>
+				<div class="item-row visible-xs">
+					<div class="row my-flex-row">
+						<div class="col-xs-2 my-padding">
+							<img class="full-width" src="assets/img/small-banner-1.jpg" alt="">
+						</div>
+						<div class="col-xs-3 my-padding">
+							<p class="details">Lorem Ipsum dolor sit product name lorem ipsum </p>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<div class="my-flex">
+								<div><p>Qty:</p></div>
+								<div><form action="#"><input type="text"></form></div>
+							</div>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<p class="price">$87.95</p>
+						</div>
+						<div class="col-xs-2 my-padding">
+							<p class="price">$87.95</p>
+						</div>
+						<div class="col-xs-1 my-padding">
+							<a href="#" class="close">×</a>
+						</div>
+					</div>
+				</div>
+				<div class="item-row-subtotal visible-xs">
+					<div class="row">
+						<div class="col-xs-12 text-right">
+							<div class="my-flex total">
+								<div><p>subtotal:</p></div>
+								<div><p class="total-price">$175.95</p></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item-row-buttons visible-xs">
+					<div class="row">
+						<div class="col-xs-4 my-padding"><a href="#" class="btn btn-primary grey">CONTINUE SHOPPING</a></div>
+						<div class="col-xs-4 my-padding"><a href="#" class="btn btn-primary dark-grey">UPDATE CART</a></div>
+						<div class="col-xs-4 my-padding"><a href="#" class="btn btn-primary white-blue">CHECK OUT</a></div>
+					</div>
+				</div>	
+
+			</div>
+		</div>
+	</div>			
+</section>
