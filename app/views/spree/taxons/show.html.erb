@@ -1,30 +1,28 @@
 <section class="content">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="hr"></div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 text-uppercase">
-				<p class="GL">lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
-			</div>
-			<div class="col-md-6 text-uppercase text-right">
-				<h2><%= @taxon.name %></h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<% if @taxon.banner.file? %>
-					<%= image_tag @taxon.banner_url , class: 'full-width baner'%>
-				<% end %>
-				<div class="hr"></div>
-			</div>
-		</div>
-
-
-
 		<% if @children_taxons.any? %>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="hr"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 text-uppercase">
+					<p class="GL">lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
+				</div>
+				<div class="col-md-6 text-uppercase text-right">
+					<h2><%= @taxon.name %></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<% if @taxon.banner.file? %>
+						<%= image_tag @taxon.banner_url , class: 'full-width baner'%>
+					<% end %>
+					<div class="hr"></div>
+				</div>
+			</div>
+
 			<div class="row">
 			    <%= render partial: "spree/shared/taxons",locals: {taxons: @children_taxons } %>
 			</div>
