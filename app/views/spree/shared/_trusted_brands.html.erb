@@ -1,0 +1,18 @@
+<% if @group_taxonomies.present? %>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-uppercase">
+			<h4 class="mt">trusted brands</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="brands">
+				<% @group_taxonomies.each do |group_taxonomy| %>
+					<% group_taxonomy.each do |taxonomy| %>
+						<div><%= image_tag taxonomy.root.brand_image_url %></div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<% end %>

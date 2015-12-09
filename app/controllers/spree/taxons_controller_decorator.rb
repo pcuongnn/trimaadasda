@@ -12,6 +12,28 @@ Spree::TaxonsController.class_eval do
         @group_taxonomies.push(@sub_taxonomies) if index == (taxonomies.length - 1) || i == 1
         i = (i == 1) ? 0 : i + 1
       end
+    end
+
+    def show
+      @taxon = Spree::Taxon.friendly.find(params[:id])
+      return unless @taxon
+      curr_page = params[:page] || 1
+      per_page = params[:per_page] || Spree::Config[:products_per_page]
+      @taxonomies = Spree::Taxonomy.unbrand.includes(root: :children)
+
+      @children_taxons = @taxon.children.page(curr_page).per(per_page)
+      return @children_taxons if @children_taxons.any?
+
+      @searcher = build_searcher(params.merge(taxon: @taxon.id, include_images: true,
+                                              min_price: params[:min_price],
+                                              max_price: params[:max_price],
+                                              sortby: params[:sortby]
+                                 ))
+      @products = @searcher.retrieve_products
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end	
-	
 end

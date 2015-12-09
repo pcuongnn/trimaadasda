@@ -1,0 +1,38 @@
+    <% if taxons.any? %>
+      <% taxons.each do |taxon| %>
+          <div class="col-md-3">
+            <div class="item">
+              <a href="<%= nested_taxons_path(taxon) %>">
+                <% if taxon.image_url.blank? %>
+                    <%= image_tag "spree/frontend/category-1-item-1.jpg", :alt => taxon.name, class: 'full-width' %>
+                <% else %>
+                    <%= image_tag taxon.image_url, :alt => taxon.name, class: 'full-width', size: '270x191', :crop => :fill %>
+                <% end %>
+              </a>
+
+              <div class="section mb">
+                <div class="left">
+                  <h5><%= taxon.name %></h5>
+                </div>
+                <div class="right text-right">
+                  <%= image_tag 'spree/frontend/arrow-right.png' %>
+                </div>
+              </div>
+
+              <ul>
+                <li><a href="#">Drain Trim Sets</a></li>
+                <li><a href="#">Grills & Strainers</a></li>
+                <li><a href="#">Shower</a></li>
+                <li><a href="#">Roman Tub Drains</a></li>
+                <li><a href="#">Shower Rods & Holders</a></li>
+                <li><a href="#">Shower</a></li>
+                <li><a href="#">Shower Arms & Flanges</a></li>
+                <li><a href="#">Tub Spouts</a></li>
+                <li><a href="#">Conversion Kits</a></li>
+                <li><a href="#">Face Plates & Accessories</a></li>
+                <li><a href="#">Offset Bath Supplies</a></li>
+              </ul>              
+            </div>
+          </div>  
+      <% end %>
+    <% end %>
