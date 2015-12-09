@@ -31,7 +31,7 @@
 </div>
 <div class="row">
 	<div class="col-md-12 text-right text-uppercase">
-		<h2 class="cat2h2">bathroom sinks</h2>
+		<h2 class="cat2h2"><%= taxon.name %></h2>
 	</div>
 </div>
 <div class="row">
@@ -56,134 +56,23 @@
 	</div>
 	<div class="col-md-9">
 		<div class="row">
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
+			<% if products.any? %>
+				<% products.each do |product| %>
+					<div class="col-md-4 col-sm-4">
+						<%= link_to product_path(product), class: 'item2' do%>	
+							<div class="imgWrap">
+									<%= large_image(product) %>
+							</div>
+							<p><%= product.name %></p>
+							<p class="price">$<%= product.price %></p>
+						<% end %>
+					</div>	
+				<% end %>
+			<% else %>
+				<div class="alert alert-info" role="alert">No Product Found</div>
+			<% end %>
 		</div>
-		<div class="row">
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<div class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<a href="#" class="item2">
-					<div class="imgWrap">
-						<%= image_tag 'spree/frontend/category-2-item.jpg' %>
-					</div>
-					<p>Lorem ipsum dolor sit amet product<br/>long name lorem ipsum</p>
-					<p class="price">$88.90</p>
-				</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12 text-right">
-				<ul class="pag2">
-					<li><a href=""><%= image_tag 'spree/frontend/arrow-left.png'%></a></li>
-					<li><span><a href="">1</a></span></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-					<li><a href=""><%= image_tag 'spree/frontend/arrow-right.png' %></a></li>
-				</ul>
-			</div>
-		</div>
+
 	</div>
 </div>
 <div class="row">
