@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in spree_taxon_brand.gemspec
+gem 'spree', github: 'spree/spree', branch: '3-0-stable'
+
+gemspec

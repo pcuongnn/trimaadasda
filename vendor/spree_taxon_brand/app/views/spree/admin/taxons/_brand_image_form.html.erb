@@ -1,0 +1,10 @@
+<% if @taxon.root? && @taxon.taxonomy.is_brand %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.field_container :brand_image, class: ['form-group'] do %>
+        <%= f.label :brand_image, "Brand Image" %>
+        <%= f.file_field :brand_image %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
   before_action :get_menu_taxons
   def get_menu_taxons
-    @menu_taxons = Spree::Taxonomy.limit(8).collect(&:root)
+    @menu_taxons = Spree::Taxonomy.unbrand.limit(8).collect(&:root)
   end
 end

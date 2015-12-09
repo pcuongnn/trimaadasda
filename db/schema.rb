@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208094338) do
+ActiveRecord::Schema.define(version: 20151209040315) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -909,33 +909,46 @@ ActiveRecord::Schema.define(version: 20151208094338) do
   add_index "spree_tax_rates", ["zone_id"], name: "index_spree_tax_rates_on_zone_id", using: :btree
 
   create_table "spree_taxonomies", force: :cascade do |t|
-    t.string   "name",       limit: 255,             null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "name",       limit: 255,                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "position",   limit: 4,   default: 0
+    t.boolean  "is_brand",               default: false
   end
 
   add_index "spree_taxonomies", ["position"], name: "index_spree_taxonomies_on_position", using: :btree
 
   create_table "spree_taxons", force: :cascade do |t|
-    t.integer  "parent_id",         limit: 4
-    t.integer  "position",          limit: 4,     default: 0
-    t.string   "name",              limit: 255,               null: false
-    t.string   "permalink",         limit: 255
-    t.integer  "taxonomy_id",       limit: 4
-    t.integer  "lft",               limit: 4
-    t.integer  "rgt",               limit: 4
-    t.string   "icon_file_name",    limit: 255
-    t.string   "icon_content_type", limit: 255
-    t.integer  "icon_file_size",    limit: 4
+    t.integer  "parent_id",                limit: 4
+    t.integer  "position",                 limit: 4,     default: 0
+    t.string   "name",                     limit: 255,               null: false
+    t.string   "permalink",                limit: 255
+    t.integer  "taxonomy_id",              limit: 4
+    t.integer  "lft",                      limit: 4
+    t.integer  "rgt",                      limit: 4
+    t.string   "icon_file_name",           limit: 255
+    t.string   "icon_content_type",        limit: 255
+    t.integer  "icon_file_size",           limit: 4
     t.datetime "icon_updated_at"
-    t.text     "description",       limit: 65535
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.string   "meta_title",        limit: 255
-    t.string   "meta_description",  limit: 255
-    t.string   "meta_keywords",     limit: 255
-    t.integer  "depth",             limit: 4
+    t.text     "description",              limit: 65535
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.string   "meta_title",               limit: 255
+    t.string   "meta_description",         limit: 255
+    t.string   "meta_keywords",            limit: 255
+    t.integer  "depth",                    limit: 4
+    t.string   "brand_image_file_name",    limit: 255
+    t.string   "brand_image_content_type", limit: 255
+    t.integer  "brand_image_file_size",    limit: 4
+    t.datetime "brand_image_updated_at"
+    t.string   "image_file_name",          limit: 255
+    t.string   "image_content_type",       limit: 255
+    t.integer  "image_file_size",          limit: 4
+    t.datetime "image_updated_at"
+    t.string   "banner_file_name",         limit: 255
+    t.string   "banner_content_type",      limit: 255
+    t.integer  "banner_file_size",         limit: 4
+    t.datetime "banner_updated_at"
   end
 
   add_index "spree_taxons", ["parent_id"], name: "index_taxons_on_parent_id", using: :btree

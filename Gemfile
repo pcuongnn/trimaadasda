@@ -31,3 +31,5 @@ gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch: '3-0-stable'
 gem 'spree_slider', github: 'spree-contrib/spree_slider', branch: '3-0-stable'
+gem 'spree_taxon_image', :path => "vendor/spree_taxon_image"
+gem 'spree_taxon_brand', :path => "vendor/spree_taxon_brand"
