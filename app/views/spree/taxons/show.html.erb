@@ -24,15 +24,14 @@
 
 
 
+		<% if @children_taxons.any? %>
+			<div class="row">
+			    <%= render partial: "spree/shared/taxons",locals: {taxons: @children_taxons } %>
+			</div>
+			<%= render 'spree/shared/trusted_brands' %>
+	  	<% else %>
+      		<%= render partial: "spree/shared/products",locals: { products: @products, taxon: @taxon } %>
+	  	<% end %>
 
-		<div class="row">
-		  <% if @children_taxons.any? %>
-		    <%= render partial: "spree/shared/taxons",locals: {taxons: @children_taxons } %>
-		  <% else %>
-          	<%= render partial: "spree/shared/products",locals: { products: @products, taxon: @taxon } %>
-		  <% end %>
-		</div>
-
-		<%= render 'spree/shared/trusted_brands' %>
 	</div>
 </section>
