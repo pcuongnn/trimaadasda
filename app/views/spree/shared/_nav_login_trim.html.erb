@@ -1,0 +1,24 @@
+<div class="header-lvl-1 hidden-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-right">
+				<ul class="nav-login">
+					
+					<li><a href="/admin">DISTRIBUTOR LOGIN</a></li>
+					<% if spree_current_user %>
+						<li><%= link_to 'Log Out', logout_path, method: :delete %></li>	
+						<li><%= link_to 'My Account', spree.account_path %></li>
+					<% else %>
+						<li><%= link_to 'Log In', login_path %></li>
+						<li><%= link_to 'Register', signup_path%></li>
+					<% end %>						
+				</ul>
+				<ul class="nav-social">
+					<li><a href="#" class="icon fb"><%= image_tag "spree/frontend/social-f.png"%></a></li>
+					<li><a href="#" class="icon tw"><%= image_tag "spree/frontend/social-i.png"%></a></li>
+					<li><a href="#" class="icon in"><%= image_tag "spree/frontend/social-t.png"%></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

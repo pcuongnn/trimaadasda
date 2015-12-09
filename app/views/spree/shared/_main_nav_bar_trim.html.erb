@@ -1,0 +1,21 @@
+<div class="header-lvl-2 hidden-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="my-flex">
+					<div class="logo"><%= link_to image_tag("spree/frontend/logo.png"), root_path %></div>
+					<div class="form">
+						<form action="#">
+							<input type="text" class="search" placeholder="Type to Search">
+						</form>
+						<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-search"%></span>  <span>SEARCH</span></a></div>
+						<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-card.png"%></span> <span>MY CART</span> <span class="count">(12)</span></a></div>
+						<div><a href="#" class="btn btn-primary white-blue"> <span>CHECK OUT</span></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<%= render 'spree/shared/nav_link_trim'%>
+	</div>
+</div>

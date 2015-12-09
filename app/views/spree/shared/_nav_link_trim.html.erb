@@ -1,0 +1,12 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ul class="nav-menu">
+			<li><%= link_to 'Home', root_path %></li>
+			<% @menu_taxons.each do |taxon| %>
+				<li><%= link_to taxon.name , seo_url(taxon) %></li>
+			<% end %>
+			<li><a href="#">New Products</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</div>
+</div>

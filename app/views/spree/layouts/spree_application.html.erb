@@ -13,12 +13,12 @@
 	
 </head>
 <body>
-	<%= render 'spree/shared/trim_offcanvas'%>
+	<%= render 'spree/shared/offcanvas_trim'%>
 		<div class="sticky-page">
-			<%= render 'spree/shared/trim_header'%>
+			<%= render 'spree/shared/header_trim'%>
 			<%= yield %>
 		</div>
-	<%= render 'spree/shared/trim_footer' %>
+	<%= render 'spree/shared/footer_trim' %>
 </body>
 	<%= javascript_include_tag 'spree/frontend/owl.carousel.min.js'%>
 	<%= stylesheet_link_tag  'spree/frontend/owl.carousel.css', media: 'all', 'data-turbolinks-track' => true %>
