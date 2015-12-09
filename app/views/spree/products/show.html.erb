@@ -1,136 +1,144 @@
-				<div class="row">
-					<div class="col-md-12">
-						<div class="hr mb"></div>
+<section class="content">
+	<div class="container">
+		<div class="row hidden-xs">
+			<div class="col-md-12">
+				<div class="hrLight"></div>
+			</div>
+		</div>
+		<div class="row hidden-xs">
+			<div class="col-md-12">
+				<div class="hr mb"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="gallery-item">
+					<div class="main-img">
+						<%= large_image(@product) %>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<div class="gallery-item">
-							<div class="main-img">
-								<%= large_image(@product) %>
-							</div>
-							
-						</div>
-					</div>
-					<div class="col-md-7">
-						<div class="row">
-							<div class="col-md-12">
-								<p class="name-item"><%= @product.name %></p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="row">
-									<div class="col-md-8">
-										<div><p class="price">$<%= @product.price %></p></div>
-										<div class="my-flex action">
-											<div><p><span>SKU :</span> <%= @product.sku %></p></div>
-											<div><p class="bi">FREE SHIPPING!</p></div>
-										</div>
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-md-12">
-										<p class="gallery-subtitle">Select Finish : <strong>Polished Chrome</strong> + <span>$18.50</span></p>
-									</div>
-									<div class="col-md-12">
-										<div data-item="owl-main-card" class="owl-main-card">
-											<% @product.images.each do |image| %>
-												<div class="item"><%= image_tag image.attachment.url(:product) %></div>
-											<% end %>
-											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-											<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="my-flex card-btns">
-									<div>
-										<%= form_for :order, :url => populate_orders_url do |f| %>
-			                              <%= hidden_field_tag "variants[#{@product.variants_including_master.first.id
-			                            }]", 1, :size => 3 %>
-			                              <%= hidden_field_tag "variant_id", @product.variants_including_master.first.id %>
-			                              <b>Quantity:</b>
-			                              <%= number_field_tag "quantity",1, min: 0, max: 80, style: "text-align: center" %>&#8194;&#8194;
-			                              <%= button_to 'Add to cart', '#', :onclick => "$(this).parent().submit(); return false;", :class => "btn btn-primary text-uppercase" %>
-			                            <% end %>										
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="item-review">
-									<button class="btn btn-default btn-tabs collapsed" type="button" data-toggle="collapse" data-target="#target1" aria-expanded="false" aria-controls="target1">
-										<span>Product detail</span>
-										<span class="on"><%= image_tag "spree/frontend/card-tabs.png" %></span>
-										<span class="off"><%= image_tag "spree/frontend/card-tabs-active.png" %></span>
-									</button>
-									<div class="collapse" id="target1">
-										<div class="my-flex item-detail">
-											<div class="row">
-												<%= @product.description %>
-											</div>
-									</div>
-								</div>
-								<div class="item-review">
-									<button class="btn btn-default btn-tabs collapsed" type="button" data-toggle="collapse" data-target="#target2" aria-expanded="false" aria-controls="target1">
-										<span>Specification</span>
-										<span class="on"><%= image_tag "spree/frontend/card-tabs.png" %></span>
-										<span class="off"><%= image_tag "spree/frontend/card-tabs-active.png" %></span>
-									</button>
-									<div class="collapse" id="target2">
-										<div class="my-flex item-detail">
-											<div class="row">
-												<%= render :partial => 'properties' %>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="each-other">
-							<h3><a href="/products">>>> More from this Collection</a></h3>
-							<hr>
-						</div>
-					</div>
-				</div>
-				<div class="row">
 					
 				</div>
+			</div>
+			<div class="col-md-7">
 				<div class="row">
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="each-other">
-							<h3>You may also like</h3>
-							<hr>
+					<div class="col-md-12">
+						<p class="name-item"><%= @product.name %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-8">
+								<div><p class="price">$<%= @product.price %></p></div>
+								<div class="my-flex action">
+									<div><p><span>SKU :</span> <%= @product.sku %></p></div>
+									<div><p class="bi">FREE SHIPPING!</p></div>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-12">
+								<p class="gallery-subtitle">Select Finish : <strong>Polished Chrome</strong> + <span>$18.50</span></p>
+							</div>
+							<div class="col-md-12">
+								<div data-item="owl-main-card" class="owl-main-card">
+									<% @product.images.each do |image| %>
+										<div class="item"><%= image_tag image.attachment.url(:product) %></div>
+									<% end %>
+									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<% @products.sample(4).each do |product| %>
-						<div class="col-md-3">
-							<a href="#" class="item2">
-								<div class="imgWrap">
-									<%= link_to large_image(product, size: '260x172'), product_path(product) %>
-								</div>
-								<p><%= product.name %></p>
-								<p class="price">$<%= product.price %></p>
-							</a>
-						</div>	
-					<% end %>
+					<div class="col-md-12">
+						<div class="my-flex card-btns">
+							<div>
+								<%= form_for :order, :url => populate_orders_url do |f| %>
+		                          <%= hidden_field_tag "variants[#{@product.variants_including_master.first.id
+		                        }]", 1, :size => 3 %>
+		                          <%= hidden_field_tag "variant_id", @product.variants_including_master.first.id %>
+		                          <b>Quantity:</b>
+		                          <%= number_field_tag "quantity",1, min: 0, max: 80, style: "text-align: center" %>&#8194;&#8194;
+		                          <%= button_to 'Add to cart', '#', :onclick => "$(this).parent().submit(); return false;", :class => "btn btn-primary text-uppercase" %>
+		                        <% end %>										
+							</div>
+						</div>
+					</div>
 				</div>
-		
+				<div class="row">
+					<div class="col-md-12">
+						<div class="item-review">
+							<button class="btn btn-default btn-tabs collapsed" type="button" data-toggle="collapse" data-target="#target1" aria-expanded="false" aria-controls="target1">
+								<span>Product detail</span>
+								<span class="on"><%= image_tag "spree/frontend/card-tabs.png" %></span>
+								<span class="off"><%= image_tag "spree/frontend/card-tabs-active.png" %></span>
+							</button>
+							<div class="collapse" id="target1">
+								<div class="my-flex item-detail">
+									<div class="row">
+										<%= @product.description %>
+									</div>
+							</div>
+						</div>
+						<div class="item-review">
+							<button class="btn btn-default btn-tabs collapsed" type="button" data-toggle="collapse" data-target="#target2" aria-expanded="false" aria-controls="target1">
+								<span>Specification</span>
+								<span class="on"><%= image_tag "spree/frontend/card-tabs.png" %></span>
+								<span class="off"><%= image_tag "spree/frontend/card-tabs-active.png" %></span>
+							</button>
+							<div class="collapse" id="target2">
+								<div class="my-flex item-detail">
+									<div class="row">
+										<%= render :partial => 'properties' %>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="each-other">
+					<h3><%= link_to ">>> More from this Collection", root_path%></h3>
+					<hr>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="each-other">
+					<h3>You may also like</h3>
+					<hr>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<% @products.sample(4).each do |product| %>
+				<div class="col-md-3 col-sm-3">
+					<%= link_to product_path(product),class: 'item2' do %>	
+						<div class="imgWrap">
+							<%= large_image(product) %>
+						</div>
+						<p><%= product.name %></p>
+						<p class="price">$<%= product.price %></p>
+					<% end %>
+				</div>	
+			<% end %>
+		</div>				
+	</div>
+</div>
