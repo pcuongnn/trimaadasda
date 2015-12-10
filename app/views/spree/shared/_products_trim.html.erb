@@ -5,23 +5,9 @@
 </div>
 <div class="row">
 	<div class="col-md-6 text-uppercase">
-		<ul class="pag">
-			<li><a href="">home</a></li>
-			<li><a href="">bathroom</a></li>
-			<li><a href="">bathroom sinks</a></li>
-			<li><a href="">lorem ipsum</a></li>
-		</ul>
+			<%= breadcrumbs(@taxon) %>	
 	</div>
 	<div class="col-md-6 text-right">
-		<ul class="pag2">
-			<li><a href=""><%= image_tag 'spree/frontend/arrow-left.png' %></a></li>
-			<li><span><a href="">1</a></span></li>
-			<li><a href="">2</a></li>
-			<li><a href="">3</a></li>
-			<li><a href="">4</a></li>
-			<li><a href="">5</a></li>
-			<li><a href=""><%= image_tag 'spree/frontend/arrow-right.png' %></a></li>
-		</ul>
 	</div>
 </div>
 <div class="row">
@@ -54,8 +40,9 @@
 		<div class="row">
 			<% if products.any? %>
 				<% products.each do |product| %>
+					<% url = spree.product_url(product,taxon_id: @taxon.try(:id)) %>
 					<div class="col-md-4 col-sm-4">
-						<%= link_to product_path(product), class: 'item2' do%>	
+						<%= link_to url, class: 'item2' do%>	
 							<div class="imgWrap">
 									<%= large_image(product) %>
 							</div>
