@@ -6,7 +6,7 @@
                 <% if taxon.image_url.blank? %>
                     <%= image_tag "spree/frontend/category-1-item-1.jpg", :alt => taxon.name, class: 'full-width' %>
                 <% else %>
-                    <%= image_tag taxon.image_url, :alt => taxon.name, class: 'full-width', size: '270x191', :crop => :fill %>
+                    <%= image_tag taxon.image_url, :alt => taxon.name, class: 'full-width', size: '270x191' %>
                 <% end %>
               </a>
 

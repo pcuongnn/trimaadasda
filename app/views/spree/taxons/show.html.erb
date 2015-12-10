@@ -17,7 +17,9 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<% if @taxon.banner.file? %>
-						<%= image_tag @taxon.banner_url , class: 'full-width baner'%>
+						<%= image_tag @taxon.banner_url , class: 'full-width baner', size: '1140x247' %>
+					<% else %>
+						<%= image_tag 'spree/frontend/category-1-baner.jpg' %>
 					<% end %>
 					<div class="hr"></div>
 				</div>

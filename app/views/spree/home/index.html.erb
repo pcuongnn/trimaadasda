@@ -12,10 +12,10 @@
 						</div>				          	
 			            <% if slide.slide_link.present? %>
 			              <a href="<%= slide.slide_link %>" >
-			                <%= image_tag slide.slide_image.url %>
+			                <%= image_tag slide.slide_image.url, :size => "1140x713" %>
 			              </a>
 			            <% else %>
-			              <%= image_tag slide.slide_image.url %>
+			              <%= image_tag slide.slide_image.url, :size => "1140x713" %>
 			            <% end %>
 			          </div>
 			        <% end %>						

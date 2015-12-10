@@ -9,7 +9,7 @@
 			<div class="brands">
 				<% @group_taxonomies.each do |group_taxonomy| %>
 					<% group_taxonomy.each do |taxonomy| %>
-						<div><%= image_tag taxonomy.root.brand_image_url %></div>
+						<div><%= image_tag taxonomy.root.brand_image_url, size: '166x59' %></div>
 					<% end %>
 				<% end %>
 			</div>
