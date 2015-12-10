@@ -20,17 +20,9 @@
               </div>
 
               <ul>
-                <li><a href="#">Drain Trim Sets</a></li>
-                <li><a href="#">Grills & Strainers</a></li>
-                <li><a href="#">Shower</a></li>
-                <li><a href="#">Roman Tub Drains</a></li>
-                <li><a href="#">Shower Rods & Holders</a></li>
-                <li><a href="#">Shower</a></li>
-                <li><a href="#">Shower Arms & Flanges</a></li>
-                <li><a href="#">Tub Spouts</a></li>
-                <li><a href="#">Conversion Kits</a></li>
-                <li><a href="#">Face Plates & Accessories</a></li>
-                <li><a href="#">Offset Bath Supplies</a></li>
+                <% taxons.each do |tax| %>
+                  <li><a href="<%= nested_taxons_path(tax) %>"><%= tax.name %></a></li>
+                <% end %>
               </ul>              
             </div>
           </div>  

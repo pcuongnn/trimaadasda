@@ -16,6 +16,7 @@ Spree::TaxonsController.class_eval do
 
     def show
       @taxon = Spree::Taxon.friendly.find(params[:id])
+      @products_categories = Spree::Taxon.where(parent_id: @taxon.parent_id)
       return unless @taxon
       curr_page = params[:page] || 1
       per_page = params[:per_page] || Spree::Config[:products_per_page]
