@@ -7,7 +7,7 @@
 		</div>		
 		<div class="row hidden-xs">
 			<div class="col-md-12 text-uppercase">
-					<%= breadcrumbs(@taxon) %>	
+				<%= breadcrumbs(@taxon) %>	
 			</div>
 		</div>		
 		<div class="row hidden-xs">
@@ -26,7 +26,11 @@
 					<div class="main-img">
 						<%= large_image(@product) %>
 					</div>
-					
+					<div class="prev-img">
+						<div class="active"><%= image_tag 'spree/frontend/small-img.jpg'%></div>
+						<div><%= image_tag 'spree/frontend/small-img.jpg'%></div>
+						<div><%= image_tag 'spree/frontend/small-img.jpg'%></div>
+					</div>					
 				</div>
 			</div>
 			<div class="col-md-7">
@@ -54,7 +58,7 @@
 							<div class="col-md-12">
 								<div data-item="owl-main-card" class="owl-main-card">
 									<% @product.images.each do |image| %>
-										<div class="item"><%= image_tag image.attachment.url(:product) %></div>
+										<div class="item"><%= image_tag image.attachment.url(:product),size: '103x103' %></div>
 									<% end %>
 									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
 									<div class="item"><%= image_tag "spree/frontend/small-img.jpg" %></div>
