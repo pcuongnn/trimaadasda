@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= f.field_container :image, class: ['form-group'] do %>
+      <%= f.label :image, "Image (Should be in 270x270)" %>
+      <%= f.file_field :image %>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.field_container :banner, class: ['form-group'] do %>
+      <%= f.label :banner, "Banner (Should be in 1170x111)" %>
+      <%= f.file_field :banner %>
+    <% end %>
+  </div>
+</div>

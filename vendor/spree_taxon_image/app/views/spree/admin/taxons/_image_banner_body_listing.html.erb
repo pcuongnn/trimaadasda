@@ -1,0 +1,17 @@
+<td>
+  <% image_url = taxonomy.root.image_url(:thumb) %>
+  <% if image_url == "" %>
+    No image
+  <% else %>
+    <%= image_tag image_url %>
+  <% end %>
+</td>
+
+<td>
+  <% banner_url = taxonomy.root.banner_url(:thumb) %>
+  <% if banner_url == "" %>
+    No banner
+  <% else %>
+    <%= image_tag banner_url %>
+  <% end %>
+</td>
