@@ -5,8 +5,8 @@
 			<% @menu_taxons.each do |taxon| %>
 				<li><%= link_to taxon.name , seo_url(taxon) %></li>
 			<% end %>
-			<li><a href="#">New Products</a></li>
-			<li><a href="#">Contact Us</a></li>
+			<li><%= link_to 'New Products', products_path %></li>
+			<li><%= link_to 'Contact US', contact_us_path %></li>
 		</ul>
 	</div>
 </div>
