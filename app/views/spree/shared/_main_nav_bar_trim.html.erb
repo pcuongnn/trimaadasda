@@ -10,8 +10,16 @@
 							<%= search_field_tag :keywords, params[:keywords], :placeholder => "Type to search", class: "search-input" %>
 						<% end %>
 						<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-search.png" %></span>  <span>SEARCH</span></a></div>
-						<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-card.png"%></span> <span>MY CART</span> <span class="count">(12)</span></a></div>
-						<div><a href="#" class="btn btn-primary white-blue"> <span>CHECK OUT</span></a></div>
+						<div>
+							<%= link_to cart_path, class: "btn btn-primary white-blue" do %>
+								<span><%= image_tag "spree/frontend/head-card.png"%></span> <span>MY CART</span>
+							<% end %> 
+						</div>
+						<div>
+							<%= link_to checkout_registration_path, class: "btn btn-primary white-blue" do %>
+								<span>CHECK OUT</span>
+							<% end %>
+						</div>
 					</div>
 				</div>
 			</div>
