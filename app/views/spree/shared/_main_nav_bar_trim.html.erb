@@ -5,9 +5,10 @@
 				<div class="my-flex">
 					<div class="logo"><%= link_to image_tag("spree/frontend/logo.png"), root_path %></div>
 					<div class="form">
-						<form action="#">
-							<input type="text" class="search" placeholder="Type to Search">
-						</form>
+						<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
+						<%= form_tag spree.products_path, :method => :get, class: "search" do %>
+							<%= search_field_tag :keywords, params[:keywords], :placeholder => "Type to search", class: "search-input" %>
+						<% end %>
 						<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-search.png" %></span>  <span>SEARCH</span></a></div>
 						<div><a href="#" class="btn btn-primary white-blue"><span><%= image_tag "spree/frontend/head-card.png"%></span> <span>MY CART</span> <span class="count">(12)</span></a></div>
 						<div><a href="#" class="btn btn-primary white-blue"> <span>CHECK OUT</span></a></div>

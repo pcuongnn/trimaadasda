@@ -1,0 +1,34 @@
+<% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+
+<div id="taxonomies" class="block-side sidebar-item" data-hook>
+  <h2 class="title-side">Categories</h2>
+  <ul class="category-menu">
+    <% @taxonomies.each_with_index do |taxonomy, index| %>
+      <% active = (@taxon && taxonomy==@taxon.taxonomy) ? true : false %>
+      <li class="<%= active ? 'open' : '' %>">
+        <% root = taxonomy.root %>
+        <a href="<%= seo_url(root) %>"><%= taxonomy.name %> (<%= taxonomy.taxons.count-1 %>)</a>
+        <% if root.children.present? %>
+          <span class="icon"><i class="fa fa-plus"></i></span>
+        <% end %>
+        <% if active %>
+          <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
+        <% end %>
+        <%# cache [I18n.locale, taxonomy, max_level, @taxon] do %>
+          <%#= taxons_tree(taxonomy.root, @taxon, max_level) %>
+        <%# end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="block-side price-filter-block">
+  <h2 class="title-side">Filter price</h2>
+  <div class="range-slider">
+    <div id="noUiSlider" class="noUiSlider"></div>
+    <div class="price-range">
+      <span class="min-price">$<span>5</span></span>
+      <span class="max-price">$<span>1000</span></span>
+    </div>
+  </div>
+</div>
