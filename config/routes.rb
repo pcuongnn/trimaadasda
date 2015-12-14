@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   Spree::Core::Engine.routes.draw do
-    get '/taxon/:id' => "products#show_taxon", as: :show_taxon
-    get '/taxonomies/:id' => "products#show_taxons", as: :show_taxonomies
     get '/contact-us' => "home#contactus"
     get '/about-us' => "home#aboutus"
   end
