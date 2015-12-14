@@ -45,12 +45,21 @@
 			<div class="offcanvas-body-item">
 				<a href="#">Locations</a>
 			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">Log In</a>
-			</div>
-			<div class="offcanvas-body-item">
-				<a href="#">NEW ACCOUNT</a>
-			</div>
+			<% if spree_current_user %>
+				<div class="offcanvas-body-item">
+					<%= link_to 'Log Out', logout_path %>
+				</div>
+				<div class="offcanvas-body-item">
+					<%= link_to 'MY ACCOUNT', account_path %>
+				</div>
+			<% else %>
+				<div class="offcanvas-body-item">
+					<%= link_to 'Log In', login_path %>
+				</div>
+				<div class="offcanvas-body-item">
+					<%= link_to 'NEW ACCOUNT', signup_path %>
+				</div>		
+			<% end %>
 			<div class="offcanvas-body-item">
 				<a href="#">My CART ( <span>0</span> )</a>
 			</div>
@@ -59,12 +68,21 @@
 	<div class="offcanvas-footer">
 		<div class="offcanvas-footer-lvl-1">
 			<div class="row">
-				<div class="col-xs-6 col-md-6 col-sm-6">
-					<button class="btn btn-primary white-blue"><span>Log In</span></button>
-				</div>
-				<div class="col-xs-6 col-md-6 col-sm-6">
-					<button class="btn btn-primary white-blue"><span>NEW ACCOUNT</span></button>
-				</div>
+				<% if spree_current_user %>
+					<div class="col-xs-6 col-md-6 col-sm-6">
+						<%= button_to 'Log Out', logout_path, class: "btn btn-primary white-blue",method: :get %>
+					</div>
+					<div class="col-xs-6 col-md-6 col-sm-6">
+						<%= button_to 'My Account', spree.account_path, class: "btn btn-primary white-blue",method: :get %>
+					</div>
+				<% else %>
+					<div class="col-xs-6 col-md-6 col-sm-6">
+						<%= button_to 'Log In', login_path, class: "btn btn-primary white-blue",method: :get %>
+					</div>
+					<div class="col-xs-6 col-md-6 col-sm-6">
+						<%= button_to 'New Account', signup_path, class: "btn btn-primary white-blue",method: :get %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<div class="row">
@@ -88,7 +106,7 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-md-12 col-sm-12">
-				<button class="btn btn-primary white-blue"><span>DISTRIBUTOR LOGIN</span></button>
+				<a href="/admin"><button class="btn btn-primary white-blue"><span>DISTRIBUTOR LOGIN</span></button></a>
 			</div>
 		</div>
 		
